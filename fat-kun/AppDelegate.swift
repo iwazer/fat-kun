@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        fatten()
         return true
     }
 
@@ -41,6 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func fatten() {
+        let fm = NSFileManager.defaultManager()
+        let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("work")
+        do {
+            try fm.createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        } catch {}
+    }
 }
 
